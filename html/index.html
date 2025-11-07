@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFK Zone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="afk-container" class="hidden">
+        <div class="afk-card">
+            <div class="afk-header">
+                <span class="afk-badge">AFK ZONE</span>
+            </div>
+            
+            <div class="afk-content">
+                <div class="afk-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="afk-time">0</span>
+                        <span class="stat-label">minutos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="reward-count">0</span>
+                        <span class="stat-label">recompensas</span>
+                    </div>
+                </div>
+                
+                <div class="bonus-section">
+                    <h3>BONUS</h3>
+                    <div class="bonus-items" id="bonus-items">
+                        <!-- Los bonus items se cargarán dinámicamente -->
+                    </div>
+                </div>
+                
+                <div class="tip-section">
+                    <p class="tip-text">
+                        <span class="tip-highlight">TIP:</span> 
+                        <span id="tip-message">No te muevas para mantener tus beneficios</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Lista de timers individuales -->
+            <div class="rewards-list" id="rewards-list">
+                <!-- Los timers se cargarán dinámicamente -->
+            </div>
+        </div>
+        
+        <!-- Notificación de nueva recompensa -->
+        <div id="reward-notification" class="reward-notification hidden">
+            <div class="reward-content">
+                <span class="reward-icon">🎁</span>
+                <div class="reward-info">
+                    <span class="reward-title">¡Nueva recompensa!</span>
+                    <span class="reward-description" id="reward-desc">Item recibido</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
