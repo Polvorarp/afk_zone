@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#afk-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.afk-card {
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+    border-radius: 20px;
+    padding: 25px;
+    width: 380px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(52, 235, 216, 0.3);
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Scrollbar personalizado */
+.afk-card::-webkit-scrollbar {
+    width: 8px;
+}
+
+.afk-card::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.afk-card::-webkit-scrollbar-thumb {
+    background: rgba(52, 235, 216, 0.3);
+    border-radius: 10px;
+}
+
+.afk-card::-webkit-scrollbar-thumb:hover {
+    background: rgba(52, 235, 216, 0.5);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.afk-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.afk-badge {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    padding: 8px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+}
+
+.afk-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.afk-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stat-item {
+    background: rgba(52, 235, 216, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(52, 235, 216, 0.3);
+}
+
+.stat-value {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: #34ebd8;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bonus-section {
+    background: rgba(52, 235, 216, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(52, 235, 216, 0.2);
+}
+
+.bonus-section h3 {
+    color: #34ebd8;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.bonus-items {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.bonus-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 10px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.bonus-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.bonus-item-icon {
+    font-size: 32px;
+}
+
+.tip-section {
+    background: rgba(220, 38, 38, 0.1);
+    padding: 12px 15px;
+    border-radius: 10px;
+    border-left: 4px solid #dc2626;
+}
+
+.tip-text {
+    color: #e0e0e0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.tip-highlight {
+    color: #dc2626;
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+/* Lista de recompensas con timers individuales */
+.rewards-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.reward-timer-item {
+    background: rgba(52, 235, 216, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(52, 235, 216, 0.2);
+    transition: all 0.3s ease;
+}
+
+.reward-timer-item.active {
+    border-color: rgba(52, 235, 216, 0.5);
+    background: rgba(52, 235, 216, 0.1);
+}
+
+.reward-timer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reward-item-name {
+    color: #e0e0e0;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.reward-item-time {
+    color: #34ebd8;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.reward-progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+    height: 6px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.reward-progress-fill {
+    background: linear-gradient(90deg, #34ebd8 0%, #22c9b8 100%);
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    transition: width 1s linear;
+    box-shadow: 0 0 10px rgba(52, 235, 216, 0.5);
+}
+
+.reward-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        transparent 100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Notificación de recompensa */
+.reward-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 2px solid rgba(52, 235, 216, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideInRight 0.5s ease-out;
+    z-index: 2000;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.reward-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reward-icon {
+    font-size: 32px;
+    animation: bounce 1s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.reward-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.reward-title {
+    color: #34ebd8;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.reward-description {
+    color: #a0a0a0;
+    font-size: 12px;
+}
+
+/* Animación de pulso para items próximos a completarse */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(52, 235, 216, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(52, 235, 216, 0);
+    }
+}
+
+.reward-timer-item.near-complete {
+    animation: pulse 2s infinite;
+}
